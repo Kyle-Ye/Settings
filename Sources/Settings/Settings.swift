@@ -1,12 +1,15 @@
-/**
-The namespace for this package.
-*/
-public enum Settings {}
+/// The namespace for this package.
+public enum AppSettings {}
 
 // TODO: Remove in the next major version.
 // Preserve backwards compatibility.
-@available(*, deprecated, renamed: "Settings")
-public typealias Preferences = Settings
+@available(*, deprecated, renamed: "AppSettings")
+public typealias Settings = AppSettings
+
+// TODO: Remove in the next major version.
+// Preserve backwards compatibility.
+@available(*, deprecated, renamed: "AppSettings")
+public typealias Preferences = AppSettings
 @available(*, deprecated, renamed: "SettingsPane")
 public typealias PreferencePane = SettingsPane
 @available(*, deprecated, renamed: "SettingsPaneConvertible")
@@ -15,7 +18,7 @@ public typealias PreferencePaneConvertible = SettingsPaneConvertible
 public typealias PreferencesWindowController = SettingsWindowController
 
 @available(macOS 10.15, *)
-extension Settings.Pane {
+extension AppSettings.Pane {
 	@available(*, deprecated, renamed: "asSettingsPane()")
 	public func asPreferencePane() -> PreferencePane {
 		asSettingsPane()
@@ -26,7 +29,7 @@ extension SettingsWindowController {
 	@available(*, deprecated, renamed: "init(panes:style:animated:hidesToolbarForSingleItem:)")
 	public convenience init(
 		preferencePanes: [PreferencePane],
-		style: Settings.Style = .toolbarItems,
+		style: AppSettings.Style = .toolbarItems,
 		animated: Bool = true,
 		hidesToolbarForSingleItem: Bool = true
 	) {

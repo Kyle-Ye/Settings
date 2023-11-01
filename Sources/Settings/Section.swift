@@ -1,7 +1,7 @@
 import SwiftUI
 
 @available(macOS 10.15, *)
-extension Settings {
+extension AppSettings {
 	/**
 	Represents a section with right-aligned title and optional bottom divider.
 	*/

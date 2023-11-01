@@ -27,7 +27,7 @@ First, create some settings pane identifiers:
 ```swift
 import Settings
 
-extension Settings.PaneIdentifier {
+extension AppSettings.PaneIdentifier {
 	static let general = Self("general")
 	static let advanced = Self("advanced")
 }
@@ -65,7 +65,7 @@ import Cocoa
 import Settings
 
 final class AdvancedSettingsViewController: NSViewController, SettingsPane {
-	let paneIdentifier = Settings.PaneIdentifier.advanced
+	let paneIdentifier = AppSettings.PaneIdentifier.advanced
 	let paneTitle = "Advanced"
 	let toolbarItemIcon = NSImage(systemSymbolName: "gearshape.2", accessibilityDescription: "Advanced settings")!
 
@@ -147,9 +147,9 @@ private lazy var settingsWindowController = SettingsWindowController(
 ## API
 
 ```swift
-public enum Settings {}
+public enum AppSettings {}
 
-extension Settings {
+extension AppSettings {
 	public enum Style {
 		case toolbarItems
 		case segmentedControl
@@ -193,7 +193,7 @@ If your deployment target is macOS 10.15 or later, you can use the bundled Swift
 
 Run the `Example` target in the Xcode project in this repo to see a real-world example. The `Accounts` tab is in SwiftUI.
 
-There are also some bundled convenience SwiftUI components, like [`Settings.Container`](Sources/Settings/Container.swift) and [`Settings.Section`](Sources/Settings/Section.swift) to automatically achieve similar alignment to AppKit's [`NSGridView`](https://developer.apple.com/documentation/appkit/nsgridview). And also a `.settiingDescription()` view modifier to style text as a setting description.
+There are also some bundled convenience SwiftUI components, like [`AppSettings.Container`](Sources/Settings/Container.swift) and [`AppSettings.Section`](Sources/Settings/Section.swift) to automatically achieve similar alignment to AppKit's [`NSGridView`](https://developer.apple.com/documentation/appkit/nsgridview). And also a `.settiingDescription()` view modifier to style text as a setting description.
 
 Tip: The [`Defaults`](https://github.com/sindresorhus/Defaults#swiftui-support) package makes it very easy to persist the settings.
 
@@ -246,7 +246,7 @@ If you want to use SwiftUI panes alongside standard AppKit `NSViewController`'s,
 
 ```swift
 let CustomViewSettingsPaneViewController: () -> SettingsPane = {
-	let paneView = Settings.Pane(
+	let paneView = AppSettings.Pane(
 		identifier: …,
 		title: …,
 		toolbarIcon: NSImage(…)

@@ -6,9 +6,9 @@ Function wrapping SwiftUI into `SettingsPane`, which is mimicking view controlle
 */
 let AccountsSettingsViewController: () -> SettingsPane = {
 	/**
-	Wrap your custom view into `Settings.Pane`, while providing necessary toolbar info.
+	Wrap your custom view into `AppSettings.Pane`, while providing necessary toolbar info.
 	*/
-	let paneView = Settings.Pane(
+	let paneView = AppSettings.Pane(
 		identifier: .accounts,
 		title: "Accounts",
 		toolbarIcon: NSImage(systemSymbolName: "person.crop.circle", accessibilityDescription: "Accounts settings")!
@@ -16,7 +16,7 @@ let AccountsSettingsViewController: () -> SettingsPane = {
 		AccountsScreen()
 	}
 
-	return Settings.PaneHostingController(pane: paneView)
+	return AppSettings.PaneHostingController(pane: paneView)
 }
 
 /**
@@ -33,14 +33,14 @@ struct AccountsScreen: View {
 	private let contentWidth: Double = 450.0
 
 	var body: some View {
-		Settings.Container(contentWidth: contentWidth) {
-			Settings.Section(title: "Permissions:") {
+		AppSettings.Container(contentWidth: contentWidth) {
+			AppSettings.Section(title: "Permissions:") {
 				Toggle("Allow user to administer this computer", isOn: $isOn1)
 				Text("Administrator has root access to this machine.")
 					.settingDescription()
 				Toggle("Allow user to access every file", isOn: $isOn2)
 			}
-			Settings.Section(title: "Show scroll bars:") {
+			AppSettings.Section(title: "Show scroll bars:") {
 				Picker("", selection: $selection1) {
 					Text("When scrolling").tag(0)
 					Text("Always").tag(1)
@@ -48,7 +48,7 @@ struct AccountsScreen: View {
 					.labelsHidden()
 					.pickerStyle(.radioGroup)
 			}
-			Settings.Section(label: {
+			AppSettings.Section(label: {
 				Toggle("Some toggle", isOn: $isOn3)
 			}) {
 				Picker("", selection: $selection2) {
@@ -60,7 +60,7 @@ struct AccountsScreen: View {
 				Text("Automatic mode can slow things down.")
 					.settingDescription()
 			}
-			Settings.Section(title: "Preview mode:") {
+			AppSettings.Section(title: "Preview mode:") {
 				Picker("", selection: $selection3) {
 					Text("Automatic").tag(0)
 					Text("Manual").tag(1)
@@ -70,7 +70,7 @@ struct AccountsScreen: View {
 				Text("Automatic mode can slow things down.")
 					.settingDescription()
 			}
-			Settings.Section(title: "Expand this pane:") {
+			AppSettings.Section(title: "Expand this pane:") {
 				Toggle("Expand", isOn: $isExpanded)
 				if isExpanded {
 					ZStack(alignment: .center) {

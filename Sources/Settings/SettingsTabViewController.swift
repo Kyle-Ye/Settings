@@ -3,7 +3,7 @@ import Cocoa
 final class SettingsTabViewController: NSViewController, SettingsStyleControllerDelegate {
 	private var activeTab: Int?
 	private var panes = [SettingsPane]()
-	private var style: Settings.Style?
+	private var style: AppSettings.Style?
 	internal var settingsPanesCount: Int { panes.count }
 	private var settingsStyleController: SettingsStyleController!
 	private var isKeepingWindowCentered: Bool { settingsStyleController.isKeepingWindowCentered }
@@ -29,7 +29,7 @@ final class SettingsTabViewController: NSViewController, SettingsStyleController
 		view.translatesAutoresizingMaskIntoConstraints = false
 	}
 
-	func configure(panes: [SettingsPane], style: Settings.Style) {
+	func configure(panes: [SettingsPane], style: AppSettings.Style) {
 		self.panes = panes
 		self.style = style
 		children = panes
@@ -56,7 +56,7 @@ final class SettingsTabViewController: NSViewController, SettingsStyleController
 		window.toolbar = toolbar
 	}
 
-	func activateTab(paneIdentifier: Settings.PaneIdentifier, animated: Bool) {
+	func activateTab(paneIdentifier: AppSettings.PaneIdentifier, animated: Bool) {
 		guard let index = (panes.firstIndex { $0.paneIdentifier == paneIdentifier }) else {
 			return activateTab(index: 0, animated: animated)
 		}

@@ -1,7 +1,7 @@
 import SwiftUI
 
 @available(macOS 10.15, *)
-extension Settings {
+extension AppSettings {
 	/**
 	Function builder for `Settings` components used in order to restrict types of child views to be of type `Section`.
 	*/
@@ -13,7 +13,7 @@ extension Settings {
 	}
 
 	/**
-	A view which holds `Settings.Section` views and does all the alignment magic similar to `NSGridView` from AppKit.
+	A view which holds `AppSettings.Section` views and does all the alignment magic similar to `NSGridView` from AppKit.
 	*/
 	public struct Container: View {
 		private let sectionBuilder: () -> [Section]
@@ -22,14 +22,14 @@ extension Settings {
 		@State private var maximumLabelWidth = 0.0
 
 		/**
-		Creates an instance of container component, which handles layout of stacked `Settings.Section` views.
+		Creates an instance of container component, which handles layout of stacked `AppSettings.Section` views.
 
 		Custom alignment requires content width to be specified beforehand.
 
 		- Parameters:
 			- contentWidth: A fixed width of the container's content (excluding paddings).
 			- minimumLabelWidth: A minimum width for labels within this container. By default, it will fit to the largest label.
-			- builder: A view builder that creates `Settings.Section`'s of this container.
+			- builder: A view builder that creates `AppSettings.Section`'s of this container.
 		*/
 		public init(
 			contentWidth: Double,

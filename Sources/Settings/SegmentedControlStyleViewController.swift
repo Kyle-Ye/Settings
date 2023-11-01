@@ -105,7 +105,7 @@ final class SegmentedControlStyleViewController: NSViewController, SettingsStyle
 		]
 	}
 
-	func toolbarItem(paneIdentifier: Settings.PaneIdentifier) -> NSToolbarItem? {
+	func toolbarItem(paneIdentifier: AppSettings.PaneIdentifier) -> NSToolbarItem? {
 		let toolbarItemIdentifier = paneIdentifier.toolbarItemIdentifier
 		precondition(toolbarItemIdentifier == .toolbarSegmentedControlItem)
 

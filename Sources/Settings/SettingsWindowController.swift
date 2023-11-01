@@ -1,7 +1,7 @@
 import AppKit
 
 extension NSWindow.FrameAutosaveName {
-	static let settings: NSWindow.FrameAutosaveName = "com.sindresorhus.Settings.FrameAutosaveName"
+	static let settings: NSWindow.FrameAutosaveName = "com.sindresorhus.AppSettings.FrameAutosaveName"
 }
 
 public final class SettingsWindowController: NSWindowController {
@@ -27,7 +27,7 @@ public final class SettingsWindowController: NSWindowController {
 
 	public init(
 		panes: [SettingsPane],
-		style: Settings.Style = .toolbarItems,
+		style: AppSettings.Style = .toolbarItems,
 		animated: Bool = true,
 		hidesToolbarForSingleItem: Bool = true
 	) {
@@ -79,7 +79,7 @@ public final class SettingsWindowController: NSWindowController {
 	/**
 	Show the settings window and brings it to front.
 
-	If you pass a `Settings.PaneIdentifier`, the window will activate the corresponding tab.
+	If you pass a `AppSettings.PaneIdentifier`, the window will activate the corresponding tab.
 
 	- Parameter paneIdentifier: Identifier of the settings pane to display, or `nil` to show the tab that was open when the user last closed the window.
 
@@ -88,7 +88,7 @@ public final class SettingsWindowController: NSWindowController {
 	- See `close()` to close the window again.
 	- See `showWindow(_:)` to show the window without the convenience of activating the app.
 	*/
-	public func show(pane paneIdentifier: Settings.PaneIdentifier? = nil) {
+	public func show(pane paneIdentifier: AppSettings.PaneIdentifier? = nil) {
 		if let paneIdentifier {
 			tabViewController.activateTab(paneIdentifier: paneIdentifier, animated: false)
 		} else {
@@ -151,7 +151,7 @@ extension SettingsWindowController {
 	*/
 	public convenience init(
 		panes: [SettingsPaneConvertible],
-		style: Settings.Style = .toolbarItems,
+		style: AppSettings.Style = .toolbarItems,
 		animated: Bool = true,
 		hidesToolbarForSingleItem: Bool = true
 	) {

@@ -1,7 +1,7 @@
 import Cocoa
 import Settings
 
-extension Settings.PaneIdentifier {
+extension AppSettings.PaneIdentifier {
 	static let general = Self("general")
 	static let accounts = Self("accounts")
 	static let advanced = Self("advanced")
@@ -11,7 +11,7 @@ extension Settings.PaneIdentifier {
 final class AppDelegate: NSObject, NSApplicationDelegate {
 	@IBOutlet private var window: NSWindow!
 
-	private var settingsStyle: Settings.Style {
+	private var settingsStyle: AppSettings.Style {
 		get { .settingsStyleFromUserDefaults() }
 		set {
 			newValue.storeInUserDefaults()

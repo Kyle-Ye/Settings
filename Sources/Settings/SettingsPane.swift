@@ -1,6 +1,6 @@
 import AppKit
 
-extension Settings {
+extension AppSettings {
 	public struct PaneIdentifier: Hashable, RawRepresentable, Codable {
 		public let rawValue: String
 
@@ -11,7 +11,7 @@ extension Settings {
 }
 
 public protocol SettingsPane: NSViewController {
-	var paneIdentifier: Settings.PaneIdentifier { get }
+	var paneIdentifier: AppSettings.PaneIdentifier { get }
 	var paneTitle: String { get }
 	var toolbarItemIcon: NSImage { get }
 }
@@ -24,7 +24,7 @@ extension SettingsPane {
 	public var toolbarItemIcon: NSImage { .empty }
 }
 
-extension Settings.PaneIdentifier {
+extension AppSettings.PaneIdentifier {
 	public init(_ rawValue: String) {
 		self.init(rawValue: rawValue)
 	}

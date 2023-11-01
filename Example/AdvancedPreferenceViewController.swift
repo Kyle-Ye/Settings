@@ -2,7 +2,7 @@ import Cocoa
 import Settings
 
 final class AdvancedSettingsViewController: NSViewController, SettingsPane {
-	let paneIdentifier = Settings.PaneIdentifier.advanced
+	let paneIdentifier = AppSettings.PaneIdentifier.advanced
 	let paneTitle = "Advanced"
 	let toolbarItemIcon = NSImage(systemSymbolName: "gearshape.2", accessibilityDescription: "Advanced settings")!
 

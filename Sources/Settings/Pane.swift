@@ -3,7 +3,7 @@ import SwiftUI
 /**
 Represents a type that can be converted to `SettingsPane`.
 
-Acts as type-eraser for `Settings.Pane<T>`.
+Acts as type-eraser for `AppSettings.Pane<T>`.
 */
 public protocol SettingsPaneConvertible {
 	/**
@@ -13,7 +13,7 @@ public protocol SettingsPaneConvertible {
 }
 
 @available(macOS 10.15, *)
-extension Settings {
+extension AppSettings {
 	/**
 	Create a SwiftUI-based settings pane.
 
@@ -45,7 +45,7 @@ extension Settings {
 	}
 
 	/**
-	Hosting controller enabling `Settings.Pane` to be used alongside AppKit `NSViewController`'s.
+	Hosting controller enabling `AppSettings.Pane` to be used alongside AppKit `NSViewController`'s.
 	*/
 	public final class PaneHostingController<Content: View>: NSHostingController<Content>, SettingsPane {
 		public let paneIdentifier: PaneIdentifier
